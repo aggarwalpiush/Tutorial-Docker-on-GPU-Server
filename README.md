@@ -94,7 +94,7 @@ In case of unavailability of Docker, it can be installed by using instructions p
 docker run --gpus all nvidia/cuda nvidia-smi
 ```
 
-Note: To use gpu within the docker container, all the images must include cuda drivers. Therefore we have used ```nvidia/cuda```image.
+Note: To use gpu within the docker container, all the images must include cuda drivers. Therefore we have used ```nvidia/cuda``` which is one of the image that include these drivers.
 
 #### Start a GPU enabled container on two GPUs
 ```
