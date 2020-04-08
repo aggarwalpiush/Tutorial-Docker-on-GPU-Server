@@ -5,7 +5,7 @@ In this tutorial, we will focus on installation and creation of docker container
 Basic docker commands can be hands-on in its playground available at https://labs.play-with-docker.com/
 
 
-### GPU integrated Servers
+### Docker installation on GPU integrated servers
 
 GPU enabled servers need cuda or (cuda + cudnn) drivers which provide parallel computing platform and programming model to develop GPU-accelerated applications. Therefore, it is mandatory to install these drivers first hand.
 
