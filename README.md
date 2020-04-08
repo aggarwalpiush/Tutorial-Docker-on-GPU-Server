@@ -11,7 +11,12 @@ GPU enabled servers need cuda or (cuda + cudnn) drivers which provide parallel c
 
 To check whether these drivers are already installed. Use the following command:
 
-``` nvidia-smi ``` or ``` nvcc --version ```
+``` 
+
+nvidia-smi 
+nvcc --version
+
+```
 
 In case of unavailability of cuda drivers use this [link](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#package-manager-installation) to install them. 
 
