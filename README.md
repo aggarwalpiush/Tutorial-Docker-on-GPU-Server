@@ -79,7 +79,7 @@ docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
 
 From Docker version [19.03](https://github.com/moby/moby/pull/38828), Docker provide device requests modules to support NVIDIA GPUs. So, installation of docker plugin is not required.
 
-In case unavailability of Docker, it can be installed by following instructions provided [here](https://docs.docker.com/engine/install/)
+In case of unavailability of Docker, it can be installed by using instructions provided in the link: https://docs.docker.com/engine/install/
 
 
 ### General usage:
