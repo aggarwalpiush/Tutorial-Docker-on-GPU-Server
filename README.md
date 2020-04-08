@@ -1,15 +1,15 @@
-Docker containerization help to create different platform agnostic and hardware agnostic environments on same machine. For example, if an application need linux operating system to perform its operation, it is feasible on mac/window or other operating system by making docker container. 
+Docker provide different platform agnostic and hardware agnostic environments on same machine. For example, if an application need linux operating system to perform its operation, it is feasible on mac/windows or other operating system by creating a docker container. 
 
-In this tutorial, we will focus on installation and creation of docker container specifically on GPU servers. so, if you are new to docker, more detailed explainations are available at https://docker-curriculum.com/
+In this tutorial, we will focus on installation and creation of docker containers specifically on GPU servers. so, if you are new to docker, more detailed explainations are available at https://docker-curriculum.com/
 
-Basic docker commands can also be played in its playground available at https://labs.play-with-docker.com/
+Basic docker commands can be hands-on in its playground available at https://labs.play-with-docker.com/
 
 
 ### GPU integrated Servers
 
-GPU enabled servers need cuda or (cuda + cudnn) drivers which provide parallel computing platform and programming model to develop GPU-accelerated applications. Therefore, it is mandatory to install these drivers.
+GPU enabled servers need cuda or (cuda + cudnn) drivers which provide parallel computing platform and programming model to develop GPU-accelerated applications. Therefore, it is mandatory to install these drivers first hand.
 
-To check whether these drivers are installed. Use the following command:
+To check whether these drivers are already installed. Use the following command:
 
 ``` nvidia-smi ``` or ``` nvcc --version ```
 
@@ -24,7 +24,24 @@ docker version
 
 If Docker version is less or equal to 19.02 , GPU can be accessible from inside docker’s containers using plugin called ``` nvidia-docker ```. 
 
-To install ``` nvidia-docker ``` plugin, 
+To verify whether ``` nvidia-docker ``` plugin is available, test it using latest CUDA image.
+
+```
+docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+
+```
+
+If plugin is not available, either upgrade docker (**Recommended**) to its latest version or install ``` nvidia-docker ``` plugin.
+
+To upgrade docker to its latest version, use following commands:
+
+```
+sudo apt-get update
+sudo apt-get --only-upgrade install docker-ce nvidia-docker2
+sudo systemctl restart docker
+```
+
+If you dont want to update the docker version, To install ``` nvidia-docker ``` plugin, execute following steps:
 
 Step 1: Remove NVIDIA docker 1.0 (if installed)
 
@@ -36,10 +53,11 @@ sudo apt-get purge -y nvidia-docker
 Step 2: add the necessary repository, then update the apt package index:
 
 ```
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
-  sudo apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64/nvidia-docker.list | \
-  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+
 sudo apt-get update
 ```
 
