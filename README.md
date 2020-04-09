@@ -196,7 +196,18 @@ docker image rm <image id>
 
 ### Import and Export of containers
 
-TODO
+To export docker container, it can be saved in zipped file, 
+
+```
+docker export <container id> | gzip > filename.gz
+```
+
+To import and interactive run docker container available in zipped file format
+
+```
+zcat filename.gz | docker import - <container name>
+docker run -i -t <container name> /bin/bash
+```
 
 ### Dockerfiles
 
