@@ -211,4 +211,16 @@ docker run -i -t <container name> /bin/bash
 
 ### Dockerfiles
 
+Main task of dockerfile to build the Docker images. Building of Docker image represents cloning of development environment (the software application along with host os and installed dependent libraries developed from scratch or on the top of existing docker image) into a portable structure called image, in case an application host os include cuda drivers, then these drivers are also part of this image.  
+
+Dockerfile is created with list of instructions, most common are:
+
+#### FROM
+
+If you are performing When you run an image and generate a container, you add a new writable layer (the “container layer”) on top of the underlying layers. 
+
+
+
+### Build Images
+
 TODO
