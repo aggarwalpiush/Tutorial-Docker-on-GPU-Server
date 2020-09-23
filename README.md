@@ -225,7 +225,7 @@ If you are performing When you run an image and generate a container, you add a 
 
 TODO
 
-### Run a Jupyter notebook in your local machine hosting on docker container created in remote gpu/cpu server
+### Open a Jupyter notebook in your local machine while running on docker container which is created in remote gpu/cpu server
 
 Idea: To forward the notebook html from your docker container to remote server to your local machine.
 
