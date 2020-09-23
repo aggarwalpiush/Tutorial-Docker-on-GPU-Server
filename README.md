@@ -224,3 +224,40 @@ If you are performing When you run an image and generate a container, you add a 
 ### Build Images
 
 TODO
+
+### Run a Jupyter notebook in your local machine hosting on docker container created in remote gpu/cpu server
+
+Idea: To forward the notebook html from your docker container to remote server to your local machine.
+
+#### Steps:
+
+In your local machine (tested on macOS with common port number 9999 at each place) terminal, run the following command:
+
+```
+ssh -L <unused local port number>:localhost:<unused remote server port number> <username>@<remote server ip>
+```
+
+Create a docker container in your remote machine with port forwarding information
+
+```
+docker run -it --gpus all -p <unused remote server port number>:<unused remote server port number>  <docker image>  bash
+```
+
+In your docker container open the jupyter notebook with following command (make sure jupyter notebook is installed in your container)
+
+```
+jupyter notebook --ip 0.0.0.0 --port <unused remote server port number> --allow-root
+```
+You will get the url asked to run into your browser along with token, you will use this token id in next step.
+
+Now, in your local machine, open the browser and run following url:
+
+```
+http://localhost:<unused remote server port number>/
+```
+
+Enter the token mention in previous step.
+
+
+
+
