@@ -283,7 +283,7 @@ if you want to run tensorboard in the jupyter notebook which is accessed in your
 
 ```
 docker run -it --gpus all -p 6006:6006  -p <port for jupyter notebook>:<port for jupyter notebook>  <docker image>  bash
-`
+```
 
 In your docker container register the tensorboard command that in python file or in jupyter notebook in your local machine.
 
