@@ -259,5 +259,34 @@ http://localhost:<unused remote server port number>/
 Enter the token mention in previous step.
 
 
+### Open a tensorboard in your local machine while running on docker container which is created in remote gpu/cpu server
+
+Similar to above steps, we need to provide tensorboard port which is 6006 by default.
+
+
+#### Steps:
+
+In your local machine (tested on macOS with common port number 9999 at each place) terminal, run the following command:
+
+```
+ssh -L 6006:localhost:<6006 <username>@<remote server ip>
+```
+
+
+Create a docker container in your remote machine with port forwarding information
+
+```
+docker run -it --gpus all -p 6006:6006  <docker image>  bash
+```
+
+if you want to run tensorboard in the jupyter notebook which is accessed in your local machine but running in your GPU server, you need to pass two ports ids (one for jupyter notebook and other is for your tensorboard)
+
+```
+docker run -it --gpus all -p 6006:6006  -p <port for jupyter notebook>:<port for jupyter notebook>  <docker image>  bash
+`
+
+In your docker container register the tensorboard command that in python file or in jupyter notebook in your local machine.
+
+
 
 
