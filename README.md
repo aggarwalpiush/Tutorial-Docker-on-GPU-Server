@@ -288,5 +288,7 @@ docker run -it --gpus all -p 6006:6006  -p <port for jupyter notebook>:<port for
 In your docker container register the tensorboard command that in python file or in jupyter notebook in your local machine.
 
 
-
+```
+%tensorboard --bind_all --logdir logs  --port 6006
+```
 
