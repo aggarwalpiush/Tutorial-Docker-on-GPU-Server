@@ -122,6 +122,14 @@ docker run --gpus all -it  pytorch/pytorch:latest bash
 
 Note: Here ``` tensorflow/tensorflow:latest-gpu ``` and ``` pytorch/pytorch:latest ``` are docker images available at [docker hub](https://hub.docker.com/). To get interactive pseudo tty session ``` -it ``` or ``` -i -t ``` or ``` -ti ``` can be used.
 
+#### Highly recommended docker image for GPU server is [ufoym/deepo](https://github.com/ufoym/deepo), which can be used for all deep learning frameworks without further installations.
+
+```
+docker run --gpus all -it  ufoym/deepo bash
+```
+
+Note: This image Need CUDA Version: 10.1 or above.
+
 #### To list existing running containers
 
 ```
